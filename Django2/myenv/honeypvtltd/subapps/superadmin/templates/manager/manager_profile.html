@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="My_profile()">My_profile</button>
+    <button onclick="My_profile()"> Sales</button>
+    <button onclick="My_profile()">Client</button>
+    <button onclick="My_profile()">Emplyoee</button>
+    <button onclick="My_profile()">Marketing</button>
+    <button onclick="My_profile()">Projects</button>
+    <button onclick="My_profile()">Inventory</button>
+    <button onclick="My_profile()">Transport</button>
+    <button onclick="My_profile()">Manpower</button>
+    
+    <div id="profile">
+
+    </div>
+    
+    {% for i in mdata %}
+    <h1>{{i.id}}</h1>
+    <h1>{{i.name}}</h1>
+    <h1>{{i.email}}</h1>
+    <h1>{{i.joining_date}}</h1>
+    <h1>{{i.birth_date}}</h1>
+    <h1>{{i.emp_id}}</h1>
+    <a href="{% url "image" %}">Add more Info</a>
+    {% endfor %}
+    
+
+        
+
+    <script>
+        const My_profile=()=>{
+        let x=document.getElementById("profile")
+        x.innerHTML=`
+        
+        {% for i in mdata %}
+            {{i.name}}
+            {{i.email}}
+        {% endfor %}
+            
+        `}
+    </script>
+</body>
+</html>
